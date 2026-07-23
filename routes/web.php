@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 
 // THE REAL GAS
-Route::name('students.')->prefix('students')->group(function () {
+Route::name('student.')->prefix('student')->group(function () {
     Route::get('/', function () {
         return "main students data cuh";
     })->name('index');
