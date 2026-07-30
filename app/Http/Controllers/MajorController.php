@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StudentController
+class MajorController
 {
     public function index()
     {
@@ -34,5 +34,4 @@ class StudentController
     {
         return "destroy students data cuh: {$id}";
     }
-
 }

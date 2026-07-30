@@ -1,5 +1,16 @@
 <?php
 
+use App\Http\Controllers\SchoolClass\createController;
+use App\Http\Controllers\SchoolClass\destroyController;
+use App\Http\Controllers\SchoolClass\editController;
+use App\Http\Controllers\SchoolClass\indexController;
+use App\Http\Controllers\SchoolClass\showController;
+use App\Http\Controllers\SchoolClass\storeController;
+use App\Http\Controllers\SchoolClass\updateController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\MajorController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,143 +20,34 @@ Route::get('/', function () {
 
 
 // THE REAL GAS
-Route::name('student.')->prefix('student')->group(function () {
-    Route::get('/', function () {
-        return "main students data cuh";
-    })->name('index');
-
-    Route::get('/detail', function () {
-        return "show all students data cuh";
-    })->name('show');
-
-    Route::get('/detail/{id}', function ($id) {
-        return "Show one students data cuh: {$id}";
-    })->name('show');
-
-    Route::get('/create', function () {
-        return "create new students data cuh";
-    })->name('create');
-
-    Route::get('/edit/{id}', function ($id) {
-        return "edit students data cuh: {$id}";
-    })->name('edit');
-
-    Route::post('/store', function () {
-        return "store new students data cuh";
-    })->name('store');
-
-    Route::put('/update/{id}', function ($id) {
-        return "update students data cuh: {$id}";
-    })->name('update');
-
-    Route::delete('/destroy/{id}', function ($id) {
-        return "destroy students data cuh: {$id}";
-    })->name('destroy');
+Route::name('Student.')->prefix('Student')->group(function () {
+    Route::get('/', [StudentController::class, 'index'])->name('index');
+    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
+    Route::get('/create', [StudentController::class, 'create'])->name('create');
+    Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
+    Route::post('/', [StudentController::class, 'store'])->name('store');
+    Route::put('/{id}', [StudentController::class, 'update'])->name('update');
+    Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 });
-
 
 Route::name('Teacher.')->prefix('Teacher')->group(function () {
-    Route::get('/', function () {
-        return "main teachers data cuh";
-    })->name('index');
-
-    Route::get('/detail', function () {
-        return "show all teachers data cuh";
-    })->name('show');
-
-    Route::get('/detail/{id}', function ($id) {
-        return "Show one teachers data cuh: {$id}";
-    })->name('show');
-
-    Route::get('/create', function () {
-        return "create new teachers data cuh";
-    })->name('create');
-
-    Route::get('/edit/{id}', function ($id) {
-        return "edit teachers data cuh: {$id}";
-    })->name('edit');
-
-    Route::post('/store', function () {
-        return "store new teachers data cuh";
-    })->name('store');
-
-    Route::put('/update/{id}', function ($id) {
-        return "update teachers data cuh: {$id}";
-    })->name('update');
-
-    Route::delete('/destroy/{id}', function ($id) {
-        return "destroy teachers data cuh: {$id}";
-    })->name('destroy');
+    Route::get('/', [TeacherController::class, 'index'])->name('index');
+    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
+    Route::get('/create', [TeacherController::class, 'create'])->name('create');
+    Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
+    Route::post('/', [TeacherController::class, 'store'])->name('store');
+    Route::put('/{id}', [TeacherController::class, 'update'])->name('update');
+    Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
 });
 
-
-
-Route::name('SchoolClass.')->prefix('SchoolClass')->group(function () {
-    Route::get('/', function () {
-        return "main SchoolClass data cuh";
-    })->name('index');
-
-    Route::get('/detail', function () {
-        return "show all SchoolClass data cuh";
-    })->name('show');
-
-    Route::get('/detail/{id}', function ($id) {
-        return "Show one SchoolClass data cuh: {$id}";
-    })->name('show');
-
-    Route::get('/create', function () {
-        return "create new SchoolClass data cuh";
-    })->name('create');
-
-    Route::get('/edit/{id}', function ($id) {
-        return "edit SchoolClass data cuh: {$id}";
-    })->name('edit');
-
-    Route::post('/store', function () {
-        return "store new SchoolClass data cuh";
-    })->name('store');
-
-    Route::put('/update/{id}', function ($id) {
-        return "update SchoolClass data cuh: {$id}";
-    })->name('update');
-
-    Route::delete('/destroy/{id}', function ($id) {
-        return "destroy SchoolClass data cuh: {$id}";
-    })->name('destroy');
+Route::name('classes.')->prefix('classes')->group(function () {
+    Route::get('/', indexController::class)->name('index');
+    Route::get('/{id}', [showController::class, 'show'])->name('show');
+    Route::get('/create', [createController::class, 'create'])->name('create');
+    Route::get('/{id}/edit', [editController::class, 'edit'])->name('edit');
+    Route::post('/', [storeController::class, 'store'])->name('store');
+    Route::put('/{id}', [updateController::class, 'update'])->name('update');
+    Route::delete('/{id}', [destroyController::class, 'destroy'])->name('destroy');
 });
 
-
-
-Route::name('Major.')->prefix('Major')->group(function () {
-    Route::get('/', function () {
-        return "main Major data cuh";
-    })->name('index');
-
-    Route::get('/detail', function () {
-        return "show all Major data cuh";
-    })->name('show');
-
-    Route::get('/detail/{id}', function ($id) {
-        return "Show one Major data cuh: {$id}";
-    })->name('show');
-
-    Route::get('/create', function () {
-        return "create new Major data cuh";
-    })->name('create');
-
-    Route::get('/edit/{id}', function ($id) {
-        return "edit Major data cuh: {$id}";
-    })->name('edit');
-
-    Route::post('/store', function () {
-        return "store new Major data cuh";
-    })->name('store');
-
-    Route::put('/update/{id}', function ($id) {
-        return "update Major data cuh: {$id}";
-    })->name('update');
-
-    Route::delete('/destroy/{id}', function ($id) {
-        return "destroy Major data cuh: {$id}";
-    })->name('destroy');
-});
+Route::resource('Major', MajorController::class);

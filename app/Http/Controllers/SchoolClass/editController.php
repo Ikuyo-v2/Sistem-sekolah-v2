@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers\SchoolClass;
 
 use Illuminate\Http\Request;
 
-class updateController
+class editController
 {
     /**
      * Handle the incoming request.

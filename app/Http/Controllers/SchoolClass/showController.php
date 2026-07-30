@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Student;
+namespace App\Http\Controllers\SchoolClass;
 
 use Illuminate\Http\Request;
 
-class createController
+class showController
 {
     /**
      * Handle the incoming request.
