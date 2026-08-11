@@ -8,19 +8,39 @@ class StudentController
 {
     public function index()
     {
-        return "index students data cuh";
+        $title = 'Sistem Sekolah - dafter siswa cuh';
+        $students = [
+            ['id' => 1, 'name' => 'John kohk', 'NIS' => 1001, 'class' => 'XII TKJ 1', 'Jurusan' => 'TKJ'],
+            ['id' => 2, 'name' => 'Migguel', 'NIS' => 1002, 'class' => 'XII TKJ 2', 'Jurusan' => 'TKJ'],
+            ['id' => 3, 'name' => 'Neckgurr', 'NIS' => 1003, 'class' => 'XII TKA 3', 'Jurusan' => 'TKA'],
+            ['id' => 4, 'name' => 'Tom Pearl', 'NIS' => 1004, 'class' => 'XII TKA 3', 'Jurusan' => 'TKA'],
+            
+        ];
+        return view('students.index', [
+            'title' => $title,
+            'students' => $students
+        ]);
     }
     public function show($id)
     {
-        return "show one students data cuh: {$id}";
+        $title = 'Sistem Sekolah - dafter siswa cuh';
+        return view('students.show', 
+        ['title' => $title,]);
     }
     public function create()
     {
-        return "create new students data cuh";
+        $title = 'Sistem Sekolah - dafter siswa cuh';
+        return view('students.create', [
+        'title' => $title,
+        ]);
     }
     Public function edit($id)
     {
-        return "edit students data cuh: {$id}";
+        $title = 'Sistem Sekolah - dafter siswa cuh';
+        return view('students.edit', [
+
+            'title' => $title,
+        ]);
     }
     public function store(Request $request)
     {

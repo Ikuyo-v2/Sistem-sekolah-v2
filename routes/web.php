@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 
 // THE REAL GAS
-Route::name('Student.')->prefix('Student')->group(function () {
+Route::name('Students.')->prefix('students')->group(function () {
     Route::get('/', [StudentController::class, 'index'])->name('index');
-    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
+    Route::get('/{id}', [StudentController::class, 'show'])->name('show')->whereNumber('id');
     Route::get('/create', [StudentController::class, 'create'])->name('create');
-    Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
+    Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit')->whereNumber('id');
     Route::post('/', [StudentController::class, 'store'])->name('store');
     Route::put('/{id}', [StudentController::class, 'update'])->name('update');
     Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
