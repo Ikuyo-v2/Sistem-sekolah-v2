@@ -34,7 +34,7 @@ class indexController
             ]
         ];
 
-        return view('SchoolClasses.index', [
+        return view('classes.index', [
             'title' => $title,
             'classes' => $classes
         ]);

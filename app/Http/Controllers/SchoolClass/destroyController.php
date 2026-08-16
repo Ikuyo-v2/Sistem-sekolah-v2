@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class destroyController
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $id)
     {
-        //
+        return $this->destroy($id);
+    }
+
+    public function destroy($id)
+    {
+        return "destroy class data cuh: {$id}";
     }
 }

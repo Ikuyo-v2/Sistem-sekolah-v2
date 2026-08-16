@@ -51,10 +51,3 @@ Route::name('classes.')->prefix('classes')->group(function () {
 });
 
 Route::resource('majors', MajorController::class);
-    Route::get('/', [MajorController::class, 'index'])->name('index');
-    Route::get('/{id}', [MajorController::class, 'show'])->name('show')->whereNumber('id');
-    Route::get('/create', [MajorController::class, 'create'])->name('create');
-    Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('edit');
-    Route::post('/', [MajorController::class, 'store'])->name('store');
-    Route::put('/{id}', [MajorController::class, 'update'])->name('update');
-    Route::delete('/{id}', [MajorController::class, 'destroy'])->name('destroy');

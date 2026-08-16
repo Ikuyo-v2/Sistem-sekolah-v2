@@ -30,33 +30,59 @@ class MajorController
             ],
         ];
 
-        return view('Majors.index', [
+        return view('majors.index', [
             'title' => $title,
             'majors' => $majors,
         ]);
     }
     public function show($id)
     {
-        return "show one students data cuh: {$id}";
+        $title = 'Sistem Sekolah - detail Jurusan';
+        $major = [
+            'id' => (int) $id,
+            'code' => 'AKL',
+            'name' => 'Akuntansi dan Keuangan Lembaga',
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+        ];
+
+        return view('majors.show', [
+            'title' => $title,
+            'major' => $major,
+        ]);
     }
     public function create()
     {
-        return "create new students data cuh";
+        $title = 'Sistem Sekolah - tambah Jurusan';
+
+        return view('majors.create', [
+            'title' => $title,
+        ]);
     }
     public function edit($id)
     {
-        return "edit students data cuh: {$id}";
+        $title = 'Sistem Sekolah - ubah Jurusan';
+        $major = [
+            'id' => (int) $id,
+            'code' => 'AKL',
+            'name' => 'Akuntansi dan Keuangan Lembaga',
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+        ];
+
+        return view('majors.edit', [
+            'title' => $title,
+            'major' => $major,
+        ]);
     }
     public function store(Request $request)
     {
-        return "store new students data cuh";
+
     }
     public function update(Request $request, $id)
     {
-        return "update students data cuh: {$id}";
+
     }
     public function destroy($id)
     {
-        return "destroy students data cuh: {$id}";
+
     }
 }

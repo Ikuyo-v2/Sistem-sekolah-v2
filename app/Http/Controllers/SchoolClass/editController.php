@@ -6,11 +6,18 @@ use Illuminate\Http\Request;
 
 class editController
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, $id)
     {
-        //
+        return $this->edit($id);
+    }
+
+    public function edit($id)
+    {
+        $title = 'Sistem Sekolah - ubah kelas';
+
+        return view('classes.edit', [
+            'title' => $title,
+            'id' => $id,
+        ]);
     }
 }
