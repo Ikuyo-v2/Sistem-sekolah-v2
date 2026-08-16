@@ -8,19 +8,17 @@
     <p class="mt-1 text-sm text-slate-500">Perbarui informasi jurusan yang dipilih.</p>
 </div>
 
-<form action="{{ route('majors.update', 1) }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+<form action="{{ route('majors.update', $major['id']) }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
     @csrf
     @method('PUT')
 
     <div>
         <label for="code" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Kode Jurusan</label>
-        <input type="text" id="code" name="code" value="AKL" class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-    </div>
+     <input type="text" id="code" name="code" value="{{ $major['code'] }}" ...>
 
     <div>
         <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama Jurusan</label>
-        <input type="text" id="name" name="name" value="Akuntansi dan Keuangan Lembaga" class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-    </div>
+     <input type="text" id="name" name="name" value="{{ $major['name'] }}" ...>
 
     <div>
         <label for="description" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Deskripsi</label>

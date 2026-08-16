@@ -6,17 +6,16 @@ use Illuminate\Http\Request;
 
 class TeacherController
 {
-    public function index()
+    private function getTeachers(): array
     {
-        $title = 'Sistem Sekolah - daftar Guru cuh                                                                                                  ';
-        $teachers = [
+        return [
             [
                 'id' => 1,
                 'nip' => '198501012024',
                 'name' => 'Budi Santoso',
                 'gender' => 'Laki-Laki',
                 'subject' => 'Akuntansi Dasar',
-                'phone' => '081234560001',
+                'phone_number' => '081234560001',
                 'status' => 'Aktif',
             ],
             [
@@ -25,47 +24,59 @@ class TeacherController
                 'name' => 'Siti Aminah',
                 'gender' => 'Perempuan',
                 'subject' => 'Jaringan Komputer',
-                'phone' => '081234560002',
+                'phone_number' => '081234560002',
                 'status' => 'Aktif',
-            ]
-        ];  
+            ],
+        ];
+    }
 
-        return view('teachers.index', [
-            'title' => $title,
-            'teachers' => $teachers
-        ]);
-    }
-     public function show($id)
+    public function index()
     {
-        $title = 'Sistem Sekolah - Menampilkan guru cuh';
-        return view('teachers.show', 
-        ['title' => $title,]);
+        $title = 'Sistem Sekolah - Daftar Guru';
+        $teachers = $this->getTeachers();
+
+        return view('teachers.index', compact('title', 'teachers'));
     }
+
+    public function show($id)
+    {
+        $title = 'Sistem Sekolah - Detail Guru';
+        $teacher = collect($this->getTeachers())->firstWhere('id', (int) $id);
+
+        abort_if(!$teacher, 404);
+
+        return view('teachers.show', compact('title', 'teacher'));
+    }
+
     public function create()
     {
-        $title = 'Sistem Sekolah - Menambahkan guru cuh';
-        return view('teachers.create', [
-        'title' => $title,
-        ]);
-    }
-    Public function edit($id)
-    {
-        $title = 'Sistem Sekolah - Mengedit guru cuh';
-        return view('teachers.edit', [
+        $title = 'Sistem Sekolah - Tambah Guru';
 
-            'title' => $title,
-        ]);
+        return view('teachers.create', compact('title'));
     }
+
+    public function edit($id)
+    {
+        $title = 'Sistem Sekolah - Edit Guru';
+        $teacher = collect($this->getTeachers())->firstWhere('id', (int) $id);
+
+        abort_if(!$teacher, 404);
+
+        return view('teachers.edit', compact('title', 'teacher'));
+    }
+
     public function store(Request $request)
     {
-        return "store new teacher data cuh";
+
     }
+
     public function update(Request $request, $id)
     {
-        return "update teacher data cuh: {$id}";
+
     }
+
     public function destroy($id)
     {
-        return "destroy teacher data cuh: {$id}";
+
     }
 }

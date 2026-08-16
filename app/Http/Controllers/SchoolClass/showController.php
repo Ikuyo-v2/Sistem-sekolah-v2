@@ -13,11 +13,17 @@ class showController
 
     public function show($id)
     {
-        $title = 'Sistem Sekolah - detail kelas';
+        $title = 'Sistem Sekolah - Detail Kelas';
 
-        return view('classes.show', [
-            'title' => $title,
-            'id' => $id,
-        ]);
+        $classes = [
+            ['id' => 1, 'name' => 'XII AKL 1', 'grade' => 'XII', 'major' => 'AKL', 'homeroom_teacher' => 'Budi Santoso'],
+            ['id' => 2, 'name' => 'XII TKJ 1', 'grade' => 'XII', 'major' => 'TKJ', 'homeroom_teacher' => 'Siti Aminah'],
+        ];
+
+        $class = collect($classes)->firstWhere('id', (int) $id);
+
+        abort_if(!$class, 404);
+
+        return view('classes.show', compact('title', 'class'));
     }
 }

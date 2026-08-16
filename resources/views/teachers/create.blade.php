@@ -35,16 +35,15 @@
     </div>
 
     <div>
-        <label for="phone" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">No HP</label>
-        <input type="text" id="phone" name="phone" placeholder="Contoh: 081234567890" class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+        <label for="phone_number" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">No. Telepon</label>
+        <input type="text" id="phone_number" name="phone_number" placeholder="Contoh: 081234567890" class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
     </div>
 
     <div>
         <label for="status" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Status</label>
         <select id="status" name="status" class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             <option value="Aktif">Aktif</option>
-            <option value="Cuti">Cuti</option>
-            <option value="Pensiun">Pensiun</option>
+            <option value="Tidak Aktif">Tidak Aktif</option>
         </select>
     </div>
 

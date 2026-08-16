@@ -2,42 +2,46 @@
 @section('title', $title)
 @section('content')
 
-<main class="mx-auto w-full max-w-2xl flex-1 px-6 py-10">
-    <a href="{{ route('majors.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Daftar Jurusan</a>
+    <main class="mx-auto w-full max-w-2xl flex-1 px-6 py-10">
+        <a href="{{ route('majors.index') }}"
+            class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Daftar Jurusan</a>
 
-    <div class="mt-3 border border-[#E5E3DB] bg-white">
-        <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
-            <div>
-                <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Jurusan</p>
-                <h1 class="font-display text-3xl font-semibold text-[#16213A]">Akuntansi dan Keuangan Lembaga</h1>
-                <p class="mt-1 font-mono text-xs text-slate-500">Kode: AKL</p>
+        <div class="mt-3 border border-[#E5E3DB] bg-white">
+            <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
+                <div>
+                    <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Jurusan</p>
+                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">{{ $major['name'] }}</h1>
+                    <p class="mt-1 font-mono text-xs text-slate-500">Kode: {{ $major['code'] }}</p>
+                </div>
+                <a href="{{ route('majors.edit', $major['id']) }}"
+                    class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
             </div>
-            <a href="{{ route('majors.edit', 1) }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
-        </div>
 
-        <dl class="divide-y divide-[#EFEDE6] text-sm">
-            <div class="flex justify-between px-8 py-4">
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Kode Jurusan</dt>
-                <dd class="font-medium text-[#16213A]">AKL</dd>
-            </div>
-            <div class="flex justify-between px-8 py-4">
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Jurusan</dt>
-                <dd class="font-medium text-[#16213A]">Akuntansi dan Keuangan Lembaga</dd>
-            </div>
-            <div class="flex justify-between px-8 py-4">
-                <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Deskripsi</dt>
-                <dd class="font-medium text-[#16213A] text-right max-w-md">Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.</dd>
-            </div>
-        </dl>
+            <dl class="divide-y divide-[#EFEDE6] text-sm">
+                <div class="flex justify-between px-8 py-4">
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Kode Jurusan</dt>
+                    <dd class="font-medium text-[#16213A]">{{ $major['code'] }}</dd>
+                </div>
+                <div class="flex justify-between px-8 py-4">
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Jurusan</dt>
+                    <dd class="font-medium text-[#16213A]">{{ $major['name'] }}</dd>
+                </div>
+                <div class="flex justify-between px-8 py-4">
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Deskripsi</dt>
+                    <dd class="font-medium text-[#16213A] text-right max-w-md">{{ $major['description'] }}</dd>
+                </div>
+            </dl>
 
-        <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
-            <a href="{{ route('majors.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
-            <form action="{{ route('majors.destroy', 1) }}" method="POST" onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')">
+            <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
+                <a href="{{ route('majors.index') }}"
+                    class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
+                <form action="{{ route('majors.destroy', $major['id']) }}" method="POST" ...></form>
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="border border-red-200 px-5 py-2.5 text-sm font-medium text-red-700 transition hover:bg-red-50">Hapus</button>
-            </form>
+                <button type="submit"
+                    class="border border-red-200 px-5 py-2.5 text-sm font-medium text-red-700 transition hover:bg-red-50">Hapus</button>
+                </form>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 @endsection
