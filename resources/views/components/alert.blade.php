@@ -1,18 +1,15 @@
-@props(['type'  => 'SUCCESS'])
+@props(['type' => 'SUCCESS'])
 
-@if ($type == 'ERROR')
-    <div class="border border-red-500 border-b-2 bg-red-100 rounded-lg p-4">
-        <h1> INFO DOKSLI ERROR </h1>
-        <p>{{ $slot }}</p>
+@if ($type === 'ERROR')
+    <div class="mb-6 border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
+        {{ $slot }}
     </div>
-@elseif ($type == 'WARNING')
-    <div class="border border-yellow-500 border-b-2 bg-yellow-100 rounded-lg p-4">
-        <h1> INFO DOKSLI WARNING </h1>
-        <p>{{ $slot }}</p>
+@elseif ($type === 'WARNING')
+    <div class="mb-6 border border-yellow-300 bg-yellow-50 px-4 py-3 text-sm text-yellow-700">
+        {{ $slot }}
     </div>
-@elseif ($type == 'SUCCESS')
-    <div class="border border-green-500 border-b-2 bg-green-100 rounded-lg p-4">
-        <h1> INFO DOKSLI SUCCESS </h1>
-        <p>{{ $slot }}</p>
+@elseif ($type === 'SUCCESS')
+    <div class="mb-6 border border-green-300 bg-green-50 px-4 py-3 text-sm text-green-700">
+        {{ $slot }}
     </div>
 @endif
