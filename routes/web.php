@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 // THE REAL GAS
-Route::name('Students.')->prefix('students')->group(function () {
+Route::name('students.')->prefix('students')->group(function () {
     Route::get('/', [StudentController::class, 'index'])->name('index');
     Route::get('/{id}', [StudentController::class, 'show'])->name('show')->whereNumber('id');
     Route::get('/create', [StudentController::class, 'create'])->name('create');
@@ -30,9 +30,9 @@ Route::name('Students.')->prefix('students')->group(function () {
     Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 });
 
-Route::name('Teacher.')->prefix('Teacher')->group(function () {
+Route::name('teachers.')->prefix('teachers')->group(function () {
     Route::get('/', [TeacherController::class, 'index'])->name('index');
-    Route::get('/{id}', [TeacherController::class, 'show'])->name('show');
+    Route::get('/{id}', [TeacherController::class, 'show'])->name('show')->whereNumber('id');
     Route::get('/create', [TeacherController::class, 'create'])->name('create');
     Route::get('/{id}/edit', [TeacherController::class, 'edit'])->name('edit');
     Route::post('/', [TeacherController::class, 'store'])->name('store');
@@ -41,7 +41,7 @@ Route::name('Teacher.')->prefix('Teacher')->group(function () {
 });
 
 Route::name('classes.')->prefix('classes')->group(function () {
-    Route::get('/', indexController::class)->name('index');
+    Route::get('/', [indexController::class, 'index'])->name('index');
     Route::get('/{id}', [showController::class, 'show'])->name('show');
     Route::get('/create', [createController::class, 'create'])->name('create');
     Route::get('/{id}/edit', [editController::class, 'edit'])->name('edit');
@@ -50,4 +50,11 @@ Route::name('classes.')->prefix('classes')->group(function () {
     Route::delete('/{id}', [destroyController::class, 'destroy'])->name('destroy');
 });
 
-Route::resource('Major', MajorController::class);
+Route::resource('majors', MajorController::class);
+    Route::get('/', [MajorController::class, 'index'])->name('index');
+    Route::get('/{id}', [MajorController::class, 'show'])->name('show')->whereNumber('id');
+    Route::get('/create', [MajorController::class, 'create'])->name('create');
+    Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('edit');
+    Route::post('/', [MajorController::class, 'store'])->name('store');
+    Route::put('/{id}', [MajorController::class, 'update'])->name('update');
+    Route::delete('/{id}', [MajorController::class, 'destroy'])->name('destroy');

@@ -10,10 +10,9 @@ class StudentController
     {
         $title = 'Sistem Sekolah - dafter siswa cuh';
         $students = [
-            ['id' => 1, 'name' => 'John kohk', 'NIS' => 1001, 'class' => 'XII TKJ 1', 'Jurusan' => 'TKJ'],
-            ['id' => 2, 'name' => 'Migguel', 'NIS' => 1002, 'class' => 'XII TKJ 2', 'Jurusan' => 'TKJ'],
-            ['id' => 3, 'name' => 'Neckgurr', 'NIS' => 1003, 'class' => 'XII TKA 3', 'Jurusan' => 'TKA'],
-            ['id' => 4, 'name' => 'Tom Pearl', 'NIS' => 1004, 'class' => 'XII TKA 3', 'Jurusan' => 'TKA'],
+            ['id' => 1, 'name' => 'John Pih', 'NIS' => 1001, 'class' => 'XII TKJ 1', 'Jurusan' => 'TKJ'],
+            ['id' => 2, 'name' => 'Migguel', 'NIS' => 1002, 'class' => 'XII TKJ 2', 'Jurusan' => 'AKL'],
+            ['id' => 3, 'name' => 'Neckgurr', 'NIS' => 1003, 'class' => 'XII TKA 3', 'Jurusan' => 'BID'],
             
         ];
         return view('students.index', [
