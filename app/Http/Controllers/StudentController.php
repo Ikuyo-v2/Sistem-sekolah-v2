@@ -8,11 +8,11 @@ class StudentController
 {
     public function index()
     {
-        $title = 'Sistem Sekolah - dafter siswa cuh';
+        $title = 'Sistem Sekolah - Daftar Siswa';
         $students = [
-            ['id' => 1, 'name' => 'John Pih', 'NIS' => 1001, 'class' => 'XII TKJ 1', 'Jurusan' => 'TKJ'],
-            ['id' => 2, 'name' => 'Migguel', 'NIS' => 1002, 'class' => 'XII TKJ 2', 'Jurusan' => 'AKL'],
-            ['id' => 3, 'name' => 'Neckgurr', 'NIS' => 1003, 'class' => 'XII TKA 3', 'Jurusan' => 'BID'],
+            ['id' => 1, 'name' => 'John Pih', 'nis' => 1001, 'class' => 'XII TKJ 1', 'major' => 'TKJ'],
+            ['id' => 2, 'name' => 'Migguel', 'nis' => 1002, 'class' => 'XII TKJ 2', 'major' => 'AKL'],
+            ['id' => 3, 'name' => 'Neckgurr', 'nis' => 1003, 'class' => 'XII TKA 3', 'major' => 'BID'],
             
         ];
         return view('students.index', [
@@ -22,20 +22,20 @@ class StudentController
     }
     public function show($id)
     {
-        $title = 'Sistem Sekolah - dafter siswa cuh';
+        $title = 'Sistem Sekolah - Detail Siswa';
         return view('students.show', 
         ['title' => $title,]);
     }
     public function create()
     {
-        $title = 'Sistem Sekolah - dafter siswa cuh';
+        $title = 'Sistem Sekolah - Tambah Siswa';
         return view('students.create', [
         'title' => $title,
         ]);
     }
     Public function edit($id)
     {
-        $title = 'Sistem Sekolah - dafter siswa cuh';
+        $title = 'Sistem Sekolah - Edit Siswa';
         return view('students.edit', [
 
             'title' => $title,

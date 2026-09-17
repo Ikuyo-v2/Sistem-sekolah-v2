@@ -32,10 +32,10 @@
             @foreach ($students as $student)
                     <tr class="border-b border-[#EFEDE6] hover:bg-[#FAF9F5]">
                         <td class="px-5 py-4 font-display text-lg text-[#A16207]">{{ $loop->iteration }}</td>
-                        <td class="px-5 py-4 font-mono text-xs text-slate-500">{{ $student['NIS'] }}</td>
+                        <td class="px-5 py-4 font-mono text-xs text-slate-500">{{ $student['nis'] }}</td>
                         <td class="px-5 py-4 font-medium text-[#16213A]">{{ $student['name'] }}</td>
                         <td class="px-5 py-4">{{ $student['class'] }}</td>
-                        <td class="px-5 py-4">{{ $student['Jurusan'] }}</td>
+                        <td class="px-5 py-4">{{ $student['major'] }}</td>
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
                                 <a href="{{ route('students.show', $student['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
