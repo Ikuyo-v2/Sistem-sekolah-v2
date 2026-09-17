@@ -2,7 +2,6 @@
 @section('title', $title)
 @section('content')
 
-<main class="mx-auto w-full max-w-2xl flex-1 px-6 py-10">
     <a href="{{ route('teachers.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Daftar Guru</a>
 
     <div class="mt-3 border border-[#E5E3DB] bg-white">
@@ -51,5 +50,4 @@
             </form>
         </div>
     </div>
-</main>
 @endsection
