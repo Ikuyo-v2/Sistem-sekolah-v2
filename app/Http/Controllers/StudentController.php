@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Http\Requests\Student\StoreRequest;
+use App\Http\Requests\Student\UpdateRequest;
 use Illuminate\Http\Request;
 
 class StudentController
@@ -49,29 +51,17 @@ class StudentController
 
         ]);
     }
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $validatedRequest = $request->validate([
-            'nis' => ['required', 'string', 'size:4', 'unique:students,nis'],
-            'name' => ['required', 'string'],
-            'gender' => ['required', 'string', 'in:Laki-laki,Perempuan'],
-            'major' => ['required', 'string', 'in:AKL,TKJ,BiD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedRequest = $request-> validated();
 
         Student::create($validatedRequest);
 
         return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
-    public function update(Request $request, Student $student)
+    public function update(UpdateRequest $request, Student $student)
     {
-        $validatedRequest = $request->validate([
-            'nis' => ['required', 'string', 'size:4', 'unique:students,nis,' . $student->id],
-            'name' => ['required', 'string'],
-            'gender' => ['required', 'string', 'in:Laki-laki,Perempuan'],
-            'major' => ['required', 'string', 'in:AKL,TKJ,BiD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedRequest = $request->validated();
 
         $student->update($validatedRequest);
 
